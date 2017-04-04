@@ -25,7 +25,41 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-Once the extension is installed, simply use it in your code by  :
+Once the extension is installed, simply add it in your config by  :
+Basic ```config/web.php```
+
+Advanced ```[backend|frontend|common]/config/main.php```
 
 ```php
-<?= \fgh151\vpages\AutoloadExample::widget(); ?>```
+    'modules' => [
+        'pages' => [
+            'class' => 'fgh151\vpages\Module',
+        ],
+        //...
+    ]
+```
+
+RBAC
+----
+
+You can use RBAC with module. Simply add it in your config:
+
+```
+
+        'modules'    => [
+             'pages' => [
+                 'class' => 'fgh151\vpages\Module',
+                 'as access' => [
+                     'class' => 'yii\filters\AccessControl',
+                     'rules' => [
+                         [
+                             'allow' => true,
+                             'roles' => ['admin'],
+                         ]
+                     ]
+                 ]
+             ]
+            ...
+            ...
+        ],
+```
