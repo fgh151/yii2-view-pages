@@ -32,6 +32,13 @@ class PageController extends Controller
             $page .= substr($page, -1) === '/' ? 'index.php' : '/index.php';
         }
 
+        $pageDir = dirname($page);
+
+        $style = $pageDir.'/style.css';
+        $script = $pageDir.'/script.js';
+        $this->getView()->registerCss($style);
+        $this->getView()->registerJsFile($script);
+
         if (file_exists($page)) {
             return $this->render($page);
         }

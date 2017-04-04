@@ -64,6 +64,8 @@ For SEF url you may add rule to config:
 ],
 ```
 
+If there is files ```style.css``` or ```script.js``` in view dir (```/catalog/``` as example above) they will be automatically added.
+
 RBAC
 ----
 
