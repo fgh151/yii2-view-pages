@@ -39,6 +39,31 @@ Advanced ```[backend|frontend|common]/config/main.php```
     ]
 ```
 
+###Example usage 
+
+Create php file in @webroot directory or sub folder, for example
+```php
+Yii::getAlias('@webroot').'/catalog/index.php';
+```
+
+Now you have urls:
+
+* ```?r=pages/page/view&page=catalog/index.php```
+* ```?r=pages/page/view&page=catalog/```
+* ```?r=pages/page/view&page=catalog```
+
+For SEF url you may add rule to config:
+
+```php
+ 'urlManager' => [
+    'enablePrettyUrl' => true,
+    'showScriptName' => false,
+    'rules' => [
+        '<page:\w+>' => 'pages/page/view',
+    ],
+],
+```
+
 RBAC
 ----
 
